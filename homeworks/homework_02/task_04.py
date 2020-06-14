@@ -4,3 +4,10 @@
 Строки необходимо пронумеровать.
 Если в слово длинное, выводить только первые 10 букв в слове.
 """
+
+user_str = input("Введите строку, разделяя слова пробелами:")
+print(f"Вы ввелис троку: {user_str}")
+
+user_list = user_str.split()
+for index, element in enumerate(user_list, 1):
+    print(f"Слово №{index}: {element[:10:]}")
