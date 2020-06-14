@@ -15,7 +15,6 @@
 score_list = [42, 1234, 3, 4, 10, 5, 6, 6, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 sorted_score_list = score_list.copy()
 sorted_score_list.sort(reverse=True)
-sorted_score_list_copy = sorted_score_list.copy()
 
 user_number = int(input("Введите число натуральное целое число:"))
 
