@@ -12,8 +12,8 @@
 (3, {“название”: “сканер”, “цена”: 2000, “количество”: 7, “eд”: “шт.”})
 ]
 
-Необходимо собрать аналитику о товарах. Реализовать словарь,
-в котором каждый ключ — характеристика товара, например название,
+Необходимо собрать аналитику о товарах.
+Реализовать словарь, в котором каждый ключ — характеристика товара, например название,
 а значение — список значений-характеристик, например список названий товаров.
 Пример:
 {
@@ -23,3 +23,26 @@
 “ед”: [“шт.”]
 }
 """
+
+products_spec_dict_tmp = {"название": None, "цена": None, "количество": None, "единица измерения": None}
+products_spec_dict = {"название": [], "цена": [], "количество": [], "единица измерения": []}
+products_list = []
+product_number = 0
+new_product_spec_value = []
+
+while True:
+    data = input("Хотите добавить новый товар (да/нет)?")
+    if data == 'нет':
+        break
+    elif data == 'да':
+        product_number += 1
+        for spec in products_spec_dict_tmp.keys():
+            data = input(f"Введите значение поля \"{spec}\" товара:")
+            products_spec_dict_tmp[spec] = data
+            products_spec_dict[spec].append(data)
+        products_list.append((product_number, products_spec_dict_tmp.copy()))
+    else:
+        continue
+
+print(products_list)
+print(products_spec_dict)
