@@ -8,3 +8,13 @@
 Сделать вывод исходной строки, но каждое слово должно начинаться с заглавной буквы.
 Необходимо использовать написанную ранее функцию int_func().
 """
+
+
+def int_func(word_par: str):
+    """Переводит первую букву каждого слова в верхний регистр, остальные остаются в нижнем."""
+    formatted_word = word_par.title()
+    return formatted_word
+
+
+print(int_func('text'))
+print(int_func('text text text'))
