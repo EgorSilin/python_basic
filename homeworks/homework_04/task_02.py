@@ -5,3 +5,8 @@
 Пример исходного списка: [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55].
 Результат: [12, 44, 4, 10, 78, 123].
 """
+
+def_list = [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55]
+# res_list = [el for el in def_list]
+res_list = [def_list[i] for i in range(len(def_list)) if def_list[i] > def_list[i - 1] and i != 0]
+print(res_list)
