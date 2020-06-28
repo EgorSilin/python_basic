@@ -35,4 +35,4 @@ class TrafficLight:
 if __name__ == '__main__':
     current_light = TrafficLight()
     current_light.running()
-    print(current_light.say_color())
+    # print(current_light.say_color())
