@@ -8,3 +8,31 @@
 Задачу можно усложнить, реализовав проверку порядка режимов,
 и при его нарушении выводить соответствующее сообщение и завершать скрипт.
 """
+
+from time import sleep
+from random import randint
+
+
+class TrafficLight:
+    __color = 0
+
+    def running(self):
+        while True:
+            TrafficLight.__color = "red"
+            print(TrafficLight.__color)
+            sleep(7)
+            TrafficLight.__color = "yellow"
+            print(TrafficLight.__color)
+            sleep(2)
+            TrafficLight.__color = "green"
+            print(TrafficLight.__color)
+            sleep(randint(1, 9))
+
+    def say_color(self):
+        return TrafficLight.__color
+
+
+if __name__ == '__main__':
+    current_light = TrafficLight()
+    current_light.running()
+    print(current_light.say_color())
