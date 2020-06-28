@@ -14,25 +14,34 @@ from random import randint
 
 
 class TrafficLight:
-    __color = 0
+    def __init__(self):
+        self.__color = ""
 
     def running(self):
         while True:
-            TrafficLight.__color = "red"
-            print(TrafficLight.__color)
+            if self.__color != "green" and self.__color != "":
+                print("Ошибка в работе светофора!")
+                break
+            self.__color = "red"
+            print(self.__color)
             sleep(7)
-            TrafficLight.__color = "yellow"
-            print(TrafficLight.__color)
+            if self.__color != "red":
+                print("Ошибка в работе светофора!")
+                break
+            self.__color = "yellow"
+            print(self.__color)
             sleep(2)
-            TrafficLight.__color = "green"
-            print(TrafficLight.__color)
+            if self.__color != "yellow":
+                print("Ошибка в работе светофора!")
+                break
+            self.__color = "green"
+            print(self.__color)
             sleep(randint(1, 9))
 
     def say_color(self):
-        return TrafficLight.__color
+        return self.__color
 
 
 if __name__ == '__main__':
     current_light = TrafficLight()
     current_light.running()
-    # print(current_light.say_color())
