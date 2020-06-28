@@ -51,6 +51,14 @@ class PoliceCar(Car):
 
 
 if __name__ == '__main__':
+    car_obj = Car(70, 'color', 'name', False)
+    print(car_obj.speed, car_obj.color, car_obj.name, car_obj.is_police)
+    car_obj.go()
+    car_obj.stop()
+    car_obj.turn("налево")
+    car_obj.show_speed()
+    print('\n')
+
     town_car_obj = TownCar(70, 'blue', 'BMW', False)
     print(town_car_obj.speed, town_car_obj.color, town_car_obj.name, town_car_obj.is_police)
     town_car_obj.go()
