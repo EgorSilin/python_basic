@@ -31,3 +31,54 @@
 Тогда метод make_order() вернет строку: *****\n*****\n*****.
 Подсказка: подробный список операторов для перегрузки доступен по ссылке.
 """
+
+
+class Table:
+    def __init__(self, cell_count: int):
+        self.cell_count = cell_count
+
+    def __add__(self, other):
+        return self.cell_count + other.cell_count
+
+    def __sub__(self, other):
+        sub_val = self.cell_count - other.cell_count
+        return sub_val if sub_val > 0 else "Разность < 0"
+
+    def __mul__(self, other):
+        return self.cell_count * other.cell_count
+
+    def __truediv__(self, other):
+        return self.cell_count // other.cell_count
+
+    def make_order(self, cell_in_row):
+        out_full_str = ''.join(map(str, ['*' for i in range(cell_in_row)]))
+        out_text = '\n'.join(map(str, [out_full_str for i in range(self.cell_count // cell_in_row)]))
+        if (self.cell_count % cell_in_row) > 0:
+            out_text += '\n' + ''.join(map(str, ['*' for i in range(self.cell_count % cell_in_row)]))
+        return out_text
+
+
+if __name__ == '__main__':
+    # create obj
+    table_obj_01 = Table(13)
+    table_obj_02 = Table(27)
+
+    # order check
+    print(table_obj_01.make_order(5))
+    print(table_obj_02.make_order(6))
+
+    # add check
+    print(table_obj_01 + table_obj_02)
+
+    # sub check
+    print(table_obj_01 - table_obj_02)
+    print(table_obj_02 - table_obj_01)
+
+    # mult check
+    print(table_obj_01 * table_obj_02)
+
+    # div check
+    print(table_obj_02 / table_obj_01)
+    print(table_obj_01 / table_obj_02)
+
+
