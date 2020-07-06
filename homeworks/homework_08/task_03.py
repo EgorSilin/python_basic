@@ -12,3 +12,33 @@
 Класс-исключение должен не позволить пользователю ввести текст (не число)
 и отобразить соответствующее сообщение. При этом работа скрипта не должна завершаться.
 """
+
+
+class IsNotNum(Exception):
+    def __init__(self, txt):
+        self.txt = txt
+
+    @staticmethod
+    def is_float(str_num):
+        try:
+            float(str_num)
+            return True
+        except ValueError:
+            return False
+
+
+if __name__ == '__main__':
+    data_list = []
+    while True:
+        try:
+            inp_data = input("Введите следующее число для списка (для завершения работы введите 'stop'):")
+            if inp_data == 'stop':
+                break
+            elif not IsNotNum.is_float(inp_data):
+                raise IsNotNum("Введеный элемент не является числом, поэтому не будет внесен в список!")
+        except IsNotNum as er:
+            print(er)
+            continue
+        else:
+            data_list.append(inp_data)
+    print(f"Итоговый список чисел: {data_list}.")
