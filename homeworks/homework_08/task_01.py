@@ -46,4 +46,4 @@ if __name__ == '__main__':
             print(e, traceback.format_exc())
             print(f"Ошибка ввода! Попробуйте заново!!!")
             continue
-    print("Рабо та программы завершена!")
+    print("Работа программы завершена!")
